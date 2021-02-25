@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchProducts,
-  selectProduct
+  selectProduct,
+  addCartItem,
   // decrement,
   // increment,
   // incrementByAmount,
@@ -40,8 +41,8 @@ export function Product() {
           <h5>${(item.price).toFixed(2)}</h5>
           <h6 className={styles.bulkprice}>or {item.installments} x {installmentPrice(item.price, item.installments)}</h6>
           </div>
-          <ButtonAddtoCart className={styles.button} />
-        </li>
+          <ButtonAddtoCart className={styles.button} OnClick={() => dispatch(addCartItem(product))}/>
+      </li>
     ))}
     </ul>
   );

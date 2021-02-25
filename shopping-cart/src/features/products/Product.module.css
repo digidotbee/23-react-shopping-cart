@@ -1,21 +1,39 @@
 .title{
 
     margin: 2px;
-    padding: 2px;
+    padding: 5px;
+    text-align: center;
 
 }
 
+.title::after{
+    
+}
+
 .container{
+    margin-top: 50px;
     display: grid;
     grid-template-columns: auto auto auto auto;
-    background-color: #a3cbeb;
     list-style: none;
     padding: 10px;
+}
+
+li:hover .button{
+    background-color: rgb(236, 191, 76);
 }
 
 img {
     width: 75%;
     /* height: 275px; */
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 5%;
+    margin-bottom: 10px;
 }
 
 .card{
@@ -34,19 +52,21 @@ img {
 
 .button{
     width: 85%;
-    height: 55px;
+    height: 40px;
     background-color: black;
     color: white;
-    margin: 25px;
+    margin: 0px;
     
 }
 
 .cart{
-    position: sticky;
-    left: 100%;
+    position: absolute;
+    top: 0px;
+    left: 93%;
     background-color: black;
     color: white;
-    padding: 5%;
-    width: 35px;
-    height: 35px;
+    padding: 2%;
+    width: 30px;
+    height: 30px;
 }
+

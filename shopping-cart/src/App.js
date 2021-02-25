@@ -1,15 +1,18 @@
 import React from 'react';
 import './App.css';
 // import { Counter } from './features/counter/Counter';
-import { ProSidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-import 'react-pro-sidebar/dist/css/styles.css';
+// import { ProSidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+// import 'react-pro-sidebar/dist/css/styles.css';
+import { Cart } from './features/cart/Cart'
 import { Product } from './features/products/Product'
 import { FaGem, FaHeart } from 'react-icons/fa'
 
 function App() {
   return (
     <div className="App">
+      <Cart />
       <Product />
+      {/* <Counter /> */}
       {/* <ProSidebar>
         <Menu iconShape="square">
           <MenuItem icon={<FaGem />}>Dashboard</MenuItem>

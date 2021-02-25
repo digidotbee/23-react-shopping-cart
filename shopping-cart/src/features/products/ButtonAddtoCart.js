@@ -3,9 +3,9 @@ import styles from './Product.module.css';
 
 const ButtonAddtoCart = () => {
     return (
-        <div>
-            <button className={styles.button}>Add to Cart</button>
-        </div>
+        <>
+        <button className={styles.button}>Add to Cart</button>
+        </>
     )
 }
 

@@ -4,16 +4,18 @@ export const productSlice = createSlice({
   name: 'products',
 //   deals with props V
   initialState: {
-    products: []
+    products: [],
+    cart:[],
+    count: 5,
+    addVisibility: false,
   },
   reducers: {
     load: (state, action) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
       state.products= action.payload
     },
+    addCartItem: (state, action) => {
+      state.cart.push(action.payload)
+    }
     // decrement: state => {
     //   state.value -= 1;
     // },
@@ -23,15 +25,9 @@ export const productSlice = createSlice({
   },
 });
 
-export const { load } = productSlice.actions;
+export const { load, addCartItem } = productSlice.actions;
 
-// The function below is called a thunk and allows us to perform async logic. It
-// can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
-// will call the thunk with the `dispatch` function as the first argument. Async
-// code can then be executed and other actions can be dispatched
-// export const incrementAsync = amount => dispatch => {
-//     dispatch(incrementByAmount(amount));
-//   };
+
 
 export const fetchProducts = () => dispatch => {
     fetch("http://localhost:3001/products")
@@ -45,4 +41,5 @@ export const fetchProducts = () => dispatch => {
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state) => state.counter.value)`
 export const selectProduct = state => state.products.products
+export const cartItems = state => state.products.cart
 export default productSlice.reducer;
