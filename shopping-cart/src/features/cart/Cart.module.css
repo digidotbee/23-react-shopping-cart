@@ -1,6 +1,60 @@
 .cartContainer{
-    width: 25%;
-    height: 85%;
+    width: 30%;
+    height: 500px;
     border: 1px solid red;
+    background-color: rgb(33, 33, 33); /* Black*/
     
 }
+
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left:-30%;
+    background-color: rgb(33, 33, 33); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+} 
+
+.sidenav span {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+.sidenav span:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+.cartItem {
+    position: relative;
+    right: -50%;
+    width: 30%;
+    height: 100px;
+    margin: 10px 0 10px 0;
+    padding-left: 20px;
+    color: whitesmoke;
+    display:flex;
+  }
+
+  .cartTop {
+    width: 50%;
+    height: 60px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 25px;
+  } 

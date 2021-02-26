@@ -6,18 +6,25 @@ export const productSlice = createSlice({
   initialState: {
     products: [],
     cart:[],
-    count: 5,
-    addVisibility: false,
+    total: 0,
+    totalPrice:0,
+    cartVisibility: false,
   },
+
   reducers: {
     load: (state, action) => {
       state.products= action.payload
     },
     addCartItem: (state, action) => {
-      state.cart.push(action.payload)
-    }
+      state.products.push(action.payload)
+    },
+    removeFromCart: (state, action) => {  
+      const removeProduct = action.payload;
+      console.log(removeProduct);
+      state.products = state.products.filter((item) => item.id != removeProduct.id);
+    },
     // decrement: state => {
-    //   state.value -= 1;
+    // state.value -= 1;
     // },
     // incrementByAmount: (state, action) => {
     //   state.value += action.payload;
@@ -25,7 +32,7 @@ export const productSlice = createSlice({
   },
 });
 
-export const { load, addCartItem } = productSlice.actions;
+export const { load, addCartItem, removeFromCart } = productSlice.actions;
 
 
 
@@ -42,4 +49,6 @@ export const fetchProducts = () => dispatch => {
 // in the slice file. For example: `useSelector((state) => state.counter.value)`
 export const selectProduct = state => state.products.products
 export const cartItems = state => state.products.cart
+export const selectTotal = state => state.total.total
+export const selectTotalPrice = state => state.totalP.totalPrice
 export default productSlice.reducer;

@@ -1,33 +1,54 @@
 .title{
 
+    width: 90%;
     margin: 2px;
     padding: 5px;
     text-align: center;
 
 }
 
-.title::after{
-    
-}
-
-.container{
-    margin-top: 50px;
+.cardContainer{
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    list-style: none;
-    padding: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+    width: 80%;
 }
 
-li:hover .button{
-    background-color: rgb(236, 191, 76);
+.shipping {
+    width: 35%;
+    height: 15px;
+    background-color: black;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 9px;
+    position: relative;
+    top: 10px;
+    left: 62px;
+    padding-top: 4px;
+  }
+
+.button{
+    width: 95%;
+    background-color: black;
+    height: 50px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    margin-top: 5px;
+    border: none;
+}
+
+.card:hover .button{
+    background-color: rgb(199, 173, 25);
 }
 
 img {
     width: 75%;
-    /* height: 275px; */
+    height: 275px;
 }
-
-li {
+.card {
+    list-style: none;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,15 +69,6 @@ li {
     color: lightslategray;
     margin: 2px;
 
-}
-
-.button{
-    width: 85%;
-    height: 40px;
-    background-color: black;
-    color: white;
-    margin: 0px;
-    
 }
 
 .cart{

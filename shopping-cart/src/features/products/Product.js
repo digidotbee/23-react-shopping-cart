@@ -11,7 +11,6 @@ import {
   // selectCount,
 } from './productSlice';
 import styles from './Product.module.css';
-import ButtonAddtoCart from './ButtonAddtoCart'
 import { FaShoppingCart } from 'react-icons/fa';
 
 export function Product() {
@@ -29,19 +28,30 @@ export function Product() {
       return (priceNum/installNum).toFixed(2)
     }
 
+      const getWholeAndDecimal = value => {
+      const guardNaN = value => isFinite(value) ? value : 0;
+      const [whole, decimal] = String(value).split('.');
+      return [Number(guardNaN(whole)), Number(guardNaN(decimal))];
+    }
+
+    console.log(getWholeAndDecimal(13.37))
+
   return (
-    <ul className={styles.container}>
-    <FaShoppingCart className={styles.cart}/>
+    <ul className={styles.cardContainer}>
     {product.map((item) => (
       
-      <li>
-        <div className={styles.card}>
+      <li key={item.id} className={styles.card}>
+          <div className={styles.shipping}>Free Shipping</div>
           <img src={item.img.normal}/>
-          <h5 className={styles.title}>{item.title}</h5>
-          <h5>${(item.price).toFixed(2)}</h5>
-          <h6 className={styles.bulkprice}>or {item.installments} x {installmentPrice(item.price, item.installments)}</h6>
+          <span className={styles.title}>{item.title}</span>
+          <div>
+            <span>
+              <h3>${getWholeAndDecimal((item.price))[0]}</h3>
+              .<p>{getWholeAndDecimal((item.price).toFixed(2))[1]}</p>
+            </span>
           </div>
-          <ButtonAddtoCart className={styles.button} OnClick={() => dispatch(addCartItem(product))}/>
+          <h6 className={styles.bulkprice}>or {item.installments} x {installmentPrice(item.price, item.installments)}</h6>
+          <button className={styles.button} onClick={() => dispatch(addCartItem(product))}>Add to Cart</button>
       </li>
     ))}
     </ul>
